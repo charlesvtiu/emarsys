@@ -1,0 +1,44 @@
+<html> 
+<body>
+<head>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+<script>
+function emarsysContact(action){
+	
+    var postmsg ='http://link.unicef.org.hk/u/register.php?CID=783291893&f=693&p=2&a=r&SID=&el=&llid=&counted=&c=&optin=y&inp_1='+$('#firstName').val()+'&inp_2='+$('#lastName').val()+'&inp_3081=123&inp_3='+$('#email').val()+'&inp_3004=english';
+    return  $.ajax({
+        type: "POST",
+        url : postmsg, 
+		origin: "*",
+        dataType : "json",
+        contentType: "application/json; charset=utf-8",
+        success : function(data){   
+	//alert('Success happened');
+	window.location.href = "http://www.google.com";
+},
+        failure: function(errMsg) {
+	//alert('Error happened');
+        }
+  });
+	
+} 
+</script>
+</head>
+<form action="">
+<table>
+	<tr>
+		<td>First Name</td><td><input id="firstName" type="text"></input></td>
+	</tr>
+	<tr>
+		<td>Last Name</td><td><input id="lastName" type="text"></input></td>
+	</tr>
+	<tr>
+		<td>Email</td><td><input id="email" type="text"></input></td>
+	</tr>
+	<tr>
+		<td col="2"><input type="submit" onclick="emarsysContact();"></input></td>
+	</tr>
+</table>
+</form>
+</body>
+</html>
